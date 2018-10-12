@@ -1,22 +1,45 @@
-.headerIcon{
-    padding: 10px 40px 10px 40px
+.headerIcon {
+  padding: 10px 40px 10px 40px;
+  font-size: 40px;
 }
-.main{
-    width: 100%;
-    height: 100%;
-    /* background-color: lavender */
+.title {
+  margin: 20px 0 20px 0;
+  font-size: 30px;
 }
-.cardShow{
-    width: 800px;
-    height: auto;
-    border: 2px solid lavender;
-    border-radius: 5px;
+.main {
+  width: 100%;
+  height: auto;
+  /* background-color: lavender */
+}
+.cardShow {
+  width: 1090px;
+  height: auto;
+  padding-top: 23px;
+  padding-bottom: 23px;
+  border: 2px solid lavender;
+  border-radius: 5px;
 }
 
-.buttonBox{
-    margin-top: 50px;
+.buttonBox {
+  margin-top: 50px;
 }
 
-.singleButton{
-    margin-right: 20px;
+.singleButton {
+  margin-right: 20px;
+}
+
+.selectedInfo {
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.filterResult {
+  font-size: 25px;
+  font-weight: bold;
+  margin-left: 10px;
+  margin-top: -20px;
+  border: 2px solid lavender;
+  width: 420px;
+  height: auto;
+  padding: 5px 0 5px 0;
 }

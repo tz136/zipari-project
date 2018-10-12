@@ -1,15 +1,54 @@
 <div class="card">
-  <div class="card-header">
-    <h3><span class="badge badge-primary headerIcon">Zipari</span></h3>
+  <div class="card-header" align="center">
+    <h3><span class="badge badge-primary headerIcon">Zipari Draw Card</span></h3>
   </div>
 </div>
-<div class="main" align="center">
-  <div class="cardShow">HERE SHOW CARDS</div>
-</div>
-<div class="buttonBox" align="center">
-  <button type="button" class="btn btn-primary singleButton">DRAW</button>
-  <button type="button" class="btn btn-success singleButton">Possible card Suit</button>
-  <button type="button" class="btn btn-danger singleButton"># of Cards in a hand</button>
-  <button type="button" class="btn btn-warning singleButton">Max Card Value</button>
-  <button type="button" class="btn btn-info singleButton">Min Card Value</button>
+<div style="background-color:#F0F8FF;height: 900px;padding-top: 50px">
+  <div align="center">
+    <span class="btn btn-outline-primary" class="btn btn-outline-primary title">Your Current Card(s)</span>
+  </div>
+  <br>
+  <div class="main" align="center">
+    <div class="cardShow">
+      <span *ngFor="let card of filterCards " style="margin-left:-85px">
+        <img [src]="'../assets/pockers/'+card.value+card.suit+'.jpg'">
+      </span>
+    </div>
+  </div>
+  <div align="center">
+    <button *ngIf="filterButtonStatus[1]" type="button" class="btn btn-outline-danger selectedInfo">
+      # of Cards in a Hand =>
+    </button>
+    <div *ngIf="filterButtonStatus[1]" class="filterResult">{{filterCards.length}}</div>
+    <br>
+    <span *ngIf="filterButtonStatus[0]">
+      <span [ngClass]="PossibleSuitStatus[0]?'btn btn-danger singleButton':'btn btn-outline-danger singleButton'"
+        (click)="getPossibleSuit(0)">♦</span>
+      <span [ngClass]="PossibleSuitStatus[1]?'btn btn-dark singleButton':'btn btn-outline-dark singleButton'" style="margin-left:10px"
+        (click)="getPossibleSuit(1)">♣</span>
+      <span [ngClass]="PossibleSuitStatus[2]?'btn btn-danger singleButton':'btn btn-outline-danger singleButton'" style="margin-left:10px"
+        (click)="getPossibleSuit(2)">♥</span>
+      <span [ngClass]="PossibleSuitStatus[3]?'btn btn-dark singleButton':'btn btn-outline-dark singleButton'" style="margin-left:10px"
+        (click)="getPossibleSuit(3)">♠</span>
+    </span>
+  </div>
+  <div class="buttonBox" align="center">
+    <button type="button" class="btn btn-primary singleButton" (click)="drawCard()">DRAW</button>
+    <button type="button" [ngClass]="filterButtonStatus[0]?'btn btn-success singleButton':'btn btn-outline-success singleButton'"
+      (click)="showSuits()">
+      Possible Card Suit
+    </button>
+    <button type="button" [ngClass]="filterButtonStatus[1]?'btn btn-danger singleButton':'btn btn-outline-danger singleButton'"
+      (click)="showCardNumber()">
+      # of Cards in a
+    </button>
+    <button type="button" [ngClass]="filterButtonStatus[2]?'btn btn-warning singleButton':'btn btn-outline-warning singleButton'"
+      (click)="showMaxNumber()">
+      Max Card Value
+    </button>
+    <button type="button" [ngClass]="filterButtonStatus[3]?'btn btn-info singleButton':'btn btn-outline-info singleButton'"
+      (click)="showMinNumber()">
+      Min Card Value
+    </button>
+  </div>
 </div>
