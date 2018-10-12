@@ -76,6 +76,7 @@ export class AppComponent {
       alert("Shuffle Now?");
       this.currentCards = [];
       this.shuffleCard(this.cards);
+      this, (this.drawCount = 0);
     }
     this.callFilterHanders();
   }
@@ -97,6 +98,7 @@ export class AppComponent {
     if (this.filterButtonStatus[2] || this.filterButtonStatus[3]) {
       this.filterCards = arr;
     }
+    this.filterCards = this.filterCards.filter((v, i, a) => a.indexOf(v) === i);
   }
 
   showSuits() {
